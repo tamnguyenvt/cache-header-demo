@@ -1,0 +1,23 @@
+<script>
+    fetch("http://localhost:8000/api/cache-control")
+    // fetch("http://localhost:8000/api/without304")
+    // fetch("http://localhost:8000/api/with304")
+    //   .then(res => res.json())
+    //   .then(res => {
+    //     console.log(res.length)
+    //   })
+    function download() {
+      function downloadFile(fileUrl, fileName) {
+        var a = document.createElement("a");
+        a.href = fileUrl;
+        a.setAttribute("download", fileName);
+        a.click();
+      }
+
+      downloadFile("http://localhost:8000/api/downloadWithRangeCache", "test.json");
+    }
+</script>
+
+<button onclick="download()">
+    DOwnload
+</button>
